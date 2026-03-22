@@ -4,6 +4,7 @@ public class Main {
 	public static void main(String[] args) {
 		// TODO 自動生成されたメソッド・スタブ
 		Player p = new Player();
+		Slime s = new Slime();
 		
 		p.name = "TKG";
 		p.max_hp = 100;
@@ -11,6 +12,10 @@ public class Main {
 		
 		p.status();
 		p.rest();
+		
+		System.out.println("スライムを生成しました！");
+		
+		s.status();
 	}
 
 }
