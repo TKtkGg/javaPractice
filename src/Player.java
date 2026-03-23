@@ -1,10 +1,19 @@
 public class Player {
-	String name = "Player";
+	String name;
 	Equipment equipment;
-	int level = 1;
-	int max_hp = 100;
-	int hp = max_hp;
-	int attack = 3;
+	int level;
+	int max_hp;
+	int hp;
+	int attack;
+	
+	public Player(String name, Equipment e) {
+		this.name = name;
+		this.level = 1;
+		this.max_hp = 100;
+		this.hp = this.max_hp;
+		this.attack = 3;
+		this.equipment = e;
+	}
 	
 	public void status() {
 		System.out.println("プレイヤー");
