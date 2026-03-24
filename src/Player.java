@@ -16,7 +16,7 @@ public class Player {
 	}
 	
 	public void status() {
-		System.out.println("プレイヤー");
+		System.out.println(this.name);
 		System.out.println("LV : " + this.level);
 		System.out.println("HP : " + this.hp + "/" + this.max_hp);
 		System.out.println("ATK : " + this.attack);

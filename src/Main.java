@@ -12,9 +12,10 @@ public class Main {
 		p.status();
 		p.rest();
 		
-		System.out.println("スライムを生成しました！");
+		System.out.println("エネミー(" + s.name + ")を生成しました！");
 		
 		s.status();
+		s.nurunuru();
 	}
 
 }
