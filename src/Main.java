@@ -15,7 +15,7 @@ public class Main {
 		System.out.println("エネミー(" + s.name + ")を生成しました！");
 		
 		s.status();
-		s.nurunuru();
+		s.attack();
 	}
 
 }
