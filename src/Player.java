@@ -27,4 +27,12 @@ public class Player {
 		this.hp += Math.min(this.max_hp - this.hp, 100);
 		System.out.println("休んで回復した！");
 	}
+	
+	public int attack() {
+		int damage = this.attack + this.equipment.attack;
+		System.out.println(this.name + "の攻撃！");
+		System.out.println(damage + "ダメージ！");
+		
+		return damage;
+	}
 }

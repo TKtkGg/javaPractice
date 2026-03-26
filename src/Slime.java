@@ -5,8 +5,11 @@ public class Slime extends Enemy{
 
 	public int attack() {
 		int damage = super.attack();
-		System.out.println("敵は粘液でヌルヌルになった！");
 		
+		//50%で粘液を付与する
+		if(Math.random() < 0.5) {
+			System.out.println("粘液でヌルヌルになった！");
+		}
 		return damage;
 	}
 }

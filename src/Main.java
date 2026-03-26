@@ -1,4 +1,3 @@
-
 public class Main {
 
 	public static void main(String[] args) {
@@ -11,6 +10,7 @@ public class Main {
 
 		p.status();
 		p.rest();
+		p.attack();
 		
 		System.out.println("エネミー(" + s.name + ")を生成しました！");
 		
