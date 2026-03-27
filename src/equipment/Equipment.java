@@ -1,6 +1,7 @@
+package equipment;
 
 public class Equipment {
-	String name;
+	public String name;
 	int attack;
 	
 	public Equipment(String name, int attack) {
