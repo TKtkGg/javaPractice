@@ -1,12 +1,12 @@
 package character;
 
-public class Character {
+public abstract class Character {
 	public String name;
-	int max_hp;
-	int hp;
-	int atk;
-	int def;
-	int spd;
+	public int max_hp;
+	public int hp;
+	public int atk;
+	public int def;
+	public int spd;
 	
 	public Character(String name, int max_hp, int atk, int def, int spd){
 		this.name = name;
