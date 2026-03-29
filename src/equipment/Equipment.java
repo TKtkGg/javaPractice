@@ -2,10 +2,10 @@ package equipment;
 
 public class Equipment {
 	public String name;
-	int attack;
+	int atk;
 	
-	public Equipment(String name, int attack) {
+	public Equipment(String name, int atk) {
 		this.name = name;
-		this.attack = attack;
+		this.atk = atk;
 	}
 }

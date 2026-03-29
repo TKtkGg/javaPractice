@@ -1,6 +1,7 @@
 import character.Player;
 import character.Slime;
 import equipment.Equipment;
+import treasure.EquipmentTreasure;
 import treasure.StatusTreasure;
 
 public class Main {
@@ -18,8 +19,10 @@ public class Main {
 		p.attack();
 		
 		StatusTreasure st = new StatusTreasure();
+		EquipmentTreasure et = new EquipmentTreasure();
 		
 		st.open(p);
+		et.open();
 		
 		System.out.println();
 		System.out.println("エネミー(" + s.name + ")を生成しました！");
