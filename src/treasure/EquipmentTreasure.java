@@ -1,5 +1,6 @@
 package treasure;
 import equipment.Equipment;
+import equipment.EquipmentList;
 
 public class EquipmentTreasure extends Treasure {
 	Equipment equipment;
@@ -8,13 +9,13 @@ public class EquipmentTreasure extends Treasure {
 	}
 	
 	public void open() {
-		String[] equipmentArray = {"木の剣", "石の剣", "鉄の剣"};
+		Equipment[] equipmentArray = EquipmentList.useEquipmentList();
 		
 		int randomIndex = (int) (Math.random() * equipmentArray.length);
 		
-		String receiveEquipment = equipmentArray[randomIndex];
+		Equipment receiveEquipment = equipmentArray[randomIndex];
 		
 		System.out.println(this.name + "を見つけた！");
-		System.out.println(receiveEquipment + "を手に入れた！");
+		System.out.println(receiveEquipment.name + "(ATK:" + receiveEquipment.atk + ")を手に入れた！");
 	}
 }

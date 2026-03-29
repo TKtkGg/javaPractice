@@ -2,7 +2,7 @@ package equipment;
 
 public class Equipment {
 	public String name;
-	int atk;
+	public int atk;
 	
 	public Equipment(String name, int atk) {
 		this.name = name;
