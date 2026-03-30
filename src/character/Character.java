@@ -1,12 +1,12 @@
 package character;
 
 public abstract class Character {
-	public String name;
-	public int max_hp;
-	public int hp;
-	public int atk;
-	public int def;
-	public int spd;
+	private String name;
+	private int max_hp;
+	private int hp;
+	private int atk;
+	private int def;
+	private int spd;
 	
 	public Character(String name, int max_hp, int atk, int def, int spd){
 		this.name = name;
@@ -25,7 +25,36 @@ public abstract class Character {
 		System.out.println("SPD : " + this.spd);
 	}
 	
+	public String getName() {
+		return this.name;
+	}
+	
 	public void attack() {
 		System.out.println(this.name + "の攻撃！");
+	}
+	
+	public int Heal(int heal) {
+		this.hp += heal;
+		if(this.hp > this.max_hp) {
+			this.hp = this.max_hp;
+		}
+		return hp;
+	}
+	
+	public void increaseHp(int increase) {
+		this.max_hp += increase;
+		this.hp += increase;
+	}
+	
+	public void increaseAtk(int increase) {
+		this.atk += increase;
+	}
+	
+	public void increaseDef(int increase) {
+		this.def += increase;
+	}
+	
+	public void increaseSpd(int increase) {
+		this.spd += increase;
 	}
 }

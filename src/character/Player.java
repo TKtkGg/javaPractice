@@ -11,7 +11,7 @@ public class Player extends Character {
 	
 	public void status() {
 		super.status();
-		System.out.println("装備 : " + this.equipment.name);
+		System.out.println("装備 : " + this.equipment.getName() + "(ATK:" + this.equipment.getAtk() + ")");
 	}
 	
 	public void attack() {
@@ -19,7 +19,7 @@ public class Player extends Character {
 	}
 	
 	public void rest() {
-		this.hp += Math.min(this.max_hp - this.hp, 100);
+		this.Heal(100);
 		System.out.println("休んで回復した！");
 	}
 }
