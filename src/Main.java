@@ -18,7 +18,7 @@ public class Main {
 
 		p.status();
 		p.rest();
-		p.attack();
+		p.attack(s);
 		
 		StatusTreasure st = new StatusTreasure();
 		EquipmentTreasure et = new EquipmentTreasure(el);
@@ -32,7 +32,7 @@ public class Main {
 		System.out.println("エネミー(" + s.getName() + ")を生成しました！");
 		
 		s.status();
-		s.attack();
+		//s.attack();
 	}
 
 }

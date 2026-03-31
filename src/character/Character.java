@@ -29,8 +29,39 @@ public abstract class Character {
 		return this.name;
 	}
 	
-	public void attack() {
+	public int getHp() {
+		return this.hp;
+	}
+	
+	public int getAtk() {
+		return this.atk;
+	}
+	
+	public int getDef() {
+		return this.def;
+	}
+	
+	public int getSpd() {
+		return this.spd;
+	}
+	
+	public void setHp(int hp) {
+		this.hp = hp;
+	}
+	
+	public int attack(int doAtk, int tagDef, int tagHp) {
+		double min = 0.5;
+		double max = 1.0;
+		double randomValue = Math.random() * (max - min) + min;
+		int damage = (int) ((doAtk - tagDef / 3) * 5 * randomValue); 
+		if(damage < 0) {
+			damage = 0;
+		}
+		tagHp -= damage;
 		System.out.println(this.name + "の攻撃！");
+		System.out.println(damage + "ダメージ！");
+		
+		return tagHp;
 	}
 	
 	public int Heal(int heal) {

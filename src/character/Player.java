@@ -14,8 +14,10 @@ public class Player extends Character {
 		System.out.println("装備 : " + this.equipment.getName() + "(ATK:" + this.equipment.getAtk() + ")");
 	}
 	
-	public void attack() {
-		super.attack();
+	public void attack(Slime s) {
+		int tagHp = s.getHp();
+		tagHp = super.attack(this.getAtk() + this.equipment.getAtk(), s.getDef(), s.getHp() );
+		s.setHp(tagHp);
 	}
 	
 	public void rest() {
