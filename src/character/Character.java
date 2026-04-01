@@ -33,6 +33,10 @@ public abstract class Character {
 		return this.hp;
 	}
 	
+	public int getMaxHp() {
+		return this.max_hp;
+	}
+	
 	public int getAtk() {
 		return this.atk;
 	}
@@ -49,19 +53,24 @@ public abstract class Character {
 		this.hp = hp;
 	}
 	
-	public int attack(int doAtk, int tagDef, int tagHp) {
+	public void attack(Character target) {
+		int damage = this.calcDamage(target);
+		int tagHp = target.getHp();
+		target.setHp(tagHp - damage);
+		System.out.println(this.name + "の攻撃！");
+		System.out.println(damage + "ダメージ！");
+		System.out.println("HP : " + tagHp + "/" + target.getMaxHp());
+	}
+	
+	public int calcDamage(Character target) {
 		double min = 0.5;
 		double max = 1.0;
 		double randomValue = Math.random() * (max - min) + min;
-		int damage = (int) ((doAtk - tagDef / 3) * 5 * randomValue); 
+		int damage = (int) ((this.getAtk() - target.getDef() / 3) * 5 * randomValue); 
 		if(damage < 0) {
 			damage = 0;
 		}
-		tagHp -= damage;
-		System.out.println(this.name + "の攻撃！");
-		System.out.println(damage + "ダメージ！");
-		
-		return tagHp;
+		return damage;
 	}
 	
 	public int Heal(int heal) {

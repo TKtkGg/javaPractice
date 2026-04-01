@@ -1,3 +1,4 @@
+import character.Enemy;
 import character.Player;
 import character.Slime;
 import equipment.Equipment;
@@ -12,7 +13,7 @@ public class Main {
 		Equipment e = new Equipment("木の剣",2);
 		EquipmentList el = new EquipmentList();
 		Player p = new Player("TKG", 100, 5, 5, 5 ,e);
-		Slime s = new Slime();
+		Enemy s = new Slime();
 
 		System.out.println("プレイヤー("+ p.getName() +")を生成しました！");
 

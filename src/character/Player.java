@@ -14,11 +14,15 @@ public class Player extends Character {
 		System.out.println("装備 : " + this.equipment.getName() + "(ATK:" + this.equipment.getAtk() + ")");
 	}
 	
-	public void attack(Slime s) {
-		int tagHp = s.getHp();
-		tagHp = super.attack(this.getAtk() + this.equipment.getAtk(), s.getDef(), s.getHp() );
-		s.setHp(tagHp);
+	public void attack(Enemy target) {
+		super.attack(target);
 	}
+	
+	@Override
+	public int getAtk() {
+		return super.getAtk() + this.equipment.getAtk();
+	}
+
 	
 	public void rest() {
 		this.Heal(100);
