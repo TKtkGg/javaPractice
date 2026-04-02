@@ -14,15 +14,13 @@ public class Main {
 		EquipmentList el = new EquipmentList();
 		Player p = new Player("TKG", 100, 5, 5, 5 ,e);
 		Enemy s = new Slime();
+		StatusTreasure st = new StatusTreasure();
+		EquipmentTreasure et = new EquipmentTreasure(el);
 
-		System.out.println("プレイヤー("+ p.getName() +")を生成しました！");
+		System.out.println("プレイヤー("+ p.getName() +")");
 
 		p.status();
 		p.rest();
-		p.attack(s);
-		
-		StatusTreasure st = new StatusTreasure();
-		EquipmentTreasure et = new EquipmentTreasure(el);
 		
 		st.open(p);
 		et.open();
@@ -30,10 +28,15 @@ public class Main {
 		p.status();
 		
 		System.out.println();
-		System.out.println("エネミー(" + s.getName() + ")を生成しました！");
-		
+		System.out.println("敵("+ s.getName() +")");
 		s.status();
-		//s.attack();
+		
+		p.attack(s);
+		s.attack(p);
+		
+		p.status();
+		s.status();
+			
 	}
 
 }

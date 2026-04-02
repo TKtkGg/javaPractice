@@ -59,7 +59,7 @@ public abstract class Character {
 		target.setHp(tagHp - damage);
 		System.out.println(this.name + "の攻撃！");
 		System.out.println(damage + "ダメージ！");
-		System.out.println("HP : " + tagHp + "/" + target.getMaxHp());
+		System.out.println("HP : " + target.getHp() + "/" + target.getMaxHp() + "(" + target.getName() + ")");
 	}
 	
 	public int calcDamage(Character target) {

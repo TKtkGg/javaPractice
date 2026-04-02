@@ -14,7 +14,7 @@ public class Player extends Character {
 		System.out.println("装備 : " + this.equipment.getName() + "(ATK:" + this.equipment.getAtk() + ")");
 	}
 	
-	public void attack(Enemy target) {
+	public void attack(Character target) {
 		super.attack(target);
 	}
 	

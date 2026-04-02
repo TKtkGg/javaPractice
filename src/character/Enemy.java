@@ -8,7 +8,7 @@ public class Enemy extends Character {
 		super.status();
 	}
 	
-	public void attack() {
-		super.attack();
+	public void attack(Character target) {
+		super.attack(target);
 	}
 }
