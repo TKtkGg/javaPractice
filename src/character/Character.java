@@ -59,7 +59,11 @@ public abstract class Character {
 		target.setHp(tagHp - damage);
 		System.out.println(this.name + "の攻撃！");
 		System.out.println(damage + "ダメージ！");
+		if(target.getHp() < 0) {
+			target.setHp(0);
+		}
 		System.out.println("HP : " + target.getHp() + "/" + target.getMaxHp() + "(" + target.getName() + ")");
+		System.out.println();
 	}
 	
 	public int calcDamage(Character target) {
@@ -71,6 +75,10 @@ public abstract class Character {
 			damage = 0;
 		}
 		return damage;
+	}
+	
+	public boolean isAlive() {
+		return this.hp > 0;
 	}
 	
 	public int Heal(int heal) {

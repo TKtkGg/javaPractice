@@ -1,3 +1,4 @@
+import battle.Battle;
 import character.Enemy;
 import character.Player;
 import character.Slime;
@@ -16,6 +17,8 @@ public class Main {
 		Enemy s = new Slime();
 		StatusTreasure st = new StatusTreasure();
 		EquipmentTreasure et = new EquipmentTreasure(el);
+		Battle bt = new Battle();
+		
 
 		System.out.println("プレイヤー("+ p.getName() +")");
 
@@ -31,8 +34,8 @@ public class Main {
 		System.out.println("敵("+ s.getName() +")");
 		s.status();
 		
-		p.attack(s);
-		s.attack(p);
+		System.out.println();
+		bt.battle(p, s);
 		
 		p.status();
 		s.status();
