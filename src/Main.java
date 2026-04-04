@@ -4,6 +4,7 @@ import character.Player;
 import character.Slime;
 import equipment.Equipment;
 import equipment.EquipmentList;
+import explore.Move;
 import treasure.EquipmentTreasure;
 import treasure.StatusTreasure;
 
@@ -18,12 +19,17 @@ public class Main {
 		StatusTreasure st = new StatusTreasure();
 		EquipmentTreasure et = new EquipmentTreasure(el);
 		Battle bt = new Battle();
+		Move mv = new Move(p, s);
+		
 		
 
 		System.out.println("プレイヤー("+ p.getName() +")");
 
 		p.status();
 		p.rest();
+		
+		System.out.println();
+		mv.explore();
 		
 		st.open(p);
 		et.open();

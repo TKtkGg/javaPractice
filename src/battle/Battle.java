@@ -14,8 +14,10 @@ public class Battle {
 		}
 		if(p.isAlive()) {
 			System.out.println(p.getName() + "の勝利！");
+			return;
 		} else {
 			System.out.println(e.getName() + "の勝利！");
+			return;
 		}
 	}
 	
