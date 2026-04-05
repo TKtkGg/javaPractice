@@ -11,4 +11,8 @@ public class Enemy extends Character {
 	public void attack(Character target) {
 		super.attack(target);
 	}
+	
+	public void respawn() {
+		this.setHp(this.getMaxHp());
+	}
 }

@@ -29,7 +29,7 @@ public class Main {
 		p.rest();
 		
 		System.out.println();
-		mv.explore();
+		mv.explore(p);
 		
 		st.open(p);
 		et.open();

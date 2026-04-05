@@ -28,7 +28,7 @@ public class Move {
 		option.put("TREASURE", () -> st.open(p));
 	}
 	
-	public void explore() {
+	public void explore(Player p) {
 		while(mass > 0) {
 			List<String> optionName = new ArrayList<>();
 			for (String key : option.keySet()) {
@@ -38,10 +38,12 @@ public class Move {
 			String rightOption = optionName.get(rand.nextInt(optionName.size()));
 			String leftOption = optionName.get(rand.nextInt(optionName.size()));
 			
+			System.out.println();
 			System.out.println("どこへいきますか？(残り" + mass + "マス)");
 			System.out.println("上(w) : " + upOption);
 			System.out.println("右(d) : " + rightOption);
 			System.out.println("左(a) : " + leftOption);
+			System.out.println("ステータス(s)");
 			String direction = sc.next();
 			
 			switch(direction) {
@@ -53,6 +55,9 @@ public class Move {
 					break;
 				case "a":
 					option.get(leftOption).run();
+					break;
+				case "s":
+					p.status();
 					break;
 				default:
 					break;

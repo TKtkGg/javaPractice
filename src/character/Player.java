@@ -11,7 +11,7 @@ public class Player extends Character {
 	
 	public void status() {
 		super.status();
-		System.out.println("装備 : " + this.equipment.getName() + "(ATK:" + this.equipment.getAtk() + ")");
+		System.out.println("装備 : " + this.equipment.getName() + "(ATK:+" + this.equipment.getAtk() + ")");
 	}
 	
 	public void attack(Character target) {
