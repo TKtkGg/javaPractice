@@ -1,4 +1,8 @@
 package treasure;
+
+import java.util.ArrayList;
+
+import character.Player;
 import equipment.Equipment;
 import equipment.EquipmentList;
 
@@ -10,7 +14,7 @@ public class EquipmentTreasure extends Treasure {
 		this.equipmentArray = list.useEquipmentList();
 	}
 	
-	public void open() {
+	public void open(Player player) {
 		int randomIndex = (int) (Math.random() * equipmentArray.length);
 		
 		Equipment receiveEquipment = equipmentArray[randomIndex];
@@ -20,5 +24,14 @@ public class EquipmentTreasure extends Treasure {
 		
 		System.out.println(this.name + "を見つけた！");
 		System.out.println(eqName + "(ATK:" + eqAtk + ")を手に入れた！");
+		
+		ArrayList<Equipment> equipments = player.getOwnEquipment();
+		if(equipments.contains(receiveEquipment)) {
+			System.out.println("すでに持っている装備なので、売っぱらった。");
+		} else {
+			player.getEquipment(receiveEquipment);
+			player.equip();
+		}
+		return;
 	}
 }

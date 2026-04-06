@@ -10,14 +10,18 @@ import java.util.Scanner;
 import battle.Battle;
 import character.Enemy;
 import character.Player;
+import equipment.EquipmentList;
+import treasure.EquipmentTreasure;
 import treasure.StatusTreasure;
 
 public class Move {
 	Scanner sc = new Scanner(System.in);
 	Random rand = new Random();
 	
+	EquipmentList el = new EquipmentList();
 	Battle battle = new Battle();
 	StatusTreasure st = new StatusTreasure();
+	EquipmentTreasure et = new EquipmentTreasure(el);
 	
 	private int mass = 25;
 	
@@ -26,6 +30,8 @@ public class Move {
 	public Move(Player p, Enemy e) {
 		option.put("BATTLE", () -> battle.battle(p, e));
 		option.put("TREASURE", () -> st.open(p));
+		option.put("TREASURE", () -> et.open(p));
+		option.put("REST", () -> p.rest());
 	}
 	
 	public void explore(Player p) {
