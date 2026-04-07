@@ -9,9 +9,9 @@ public class Main {
 
 	public static void main(String[] args) {
 		// TODO 自動生成されたメソッド・スタブ
-		Equipment e = new Equipment("木の剣",2);
 		EquipmentList el = new EquipmentList();
-		Player p = new Player("TKG", 100, 5, 5, 5 ,e);
+		Equipment default_equipment = el.useEquipmentList()[0];
+		Player p = new Player("TKG", 100, 5, 5, 5 ,default_equipment);
 		Enemy s = new Slime();
 		Move mv = new Move(p, s);
 

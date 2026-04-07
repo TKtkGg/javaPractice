@@ -29,8 +29,14 @@ public class Move {
 	
 	public Move(Player p, Enemy e) {
 		option.put("BATTLE", () -> battle.battle(p, e));
-		option.put("TREASURE", () -> st.open(p));
-		option.put("TREASURE", () -> et.open(p));
+		option.put("TREASURE", () -> 
+			{
+				if(rand.nextBoolean()) {
+					st.open(p);
+				} else {
+					et.open(p);
+				}
+			});
 		option.put("REST", () -> p.rest());
 	}
 	
