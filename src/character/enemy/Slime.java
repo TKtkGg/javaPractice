@@ -1,7 +1,10 @@
-package character;
+package character.enemy;
+
+import character.Character;
+
 public class Slime extends Enemy{
 	public Slime() {
-		super("スライム", 50, 3, 3, 3);
+		super("スライム", 1, 50, 3, 3, 3);
 	}
 	
 	public void attack(Character target) {

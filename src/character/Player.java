@@ -7,10 +7,10 @@ import equipment.Equipment;
 public class Player extends Character {
 	Scanner sc = new Scanner(System.in);
 	Equipment equipment;
-	ArrayList<Equipment> ownEquipments = new ArrayList<>();
+	private ArrayList<Equipment> ownEquipments = new ArrayList<>();
 
-	public Player(String name, int max_hp, int atk, int def, int spd, Equipment e) {
-		super(name, max_hp, atk, def, spd);
+	public Player(String name, int level, int max_hp, int atk, int def, int spd, Equipment e) {
+		super(name, level, max_hp, atk, def, spd);
 		this.equipment = e;
 		getEquipment(e);
 	}

@@ -2,13 +2,15 @@ package character;
 
 public abstract class Character {
 	private String name;
+	private int level;
 	private int max_hp;
 	private int hp;
 	private int atk;
 	private int def;
 	private int spd;
 	
-	public Character(String name, int max_hp, int atk, int def, int spd){
+	public Character(String name, int level, int max_hp, int atk, int def, int spd){
+		this.level = level;
 		this.name = name;
 		this.max_hp = max_hp;
 		this.hp = max_hp;
@@ -19,6 +21,7 @@ public abstract class Character {
 	
 	public void status() {
 		System.out.println(this.name);
+		System.out.println("Lv : " + this.level);
 		System.out.println("HP : " + this.hp + "/" + this.max_hp);
 		System.out.println("ATK : " + this.atk);
 		System.out.println("DEF : " + this.def);
@@ -27,6 +30,10 @@ public abstract class Character {
 	
 	public String getName() {
 		return this.name;
+	}
+	
+	public int getLevel() {
+		return this.level;
 	}
 	
 	public int getHp() {

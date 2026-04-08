@@ -1,7 +1,7 @@
 package battle;
 
-import character.Enemy;
 import character.Player;
+import character.enemy.Enemy;
 
 public class Battle {
 	public void battle(Player p, Enemy e) {
@@ -13,9 +13,16 @@ public class Battle {
 		}
 		
 		while(p.isAlive() && e.isAlive()) {
-			p.attack(e);
-			if(e.isAlive()) {
+			if(p.getSpd() >= e.getSpd()) {
+				p.attack(e);
+				if(e.isAlive()) {
+					e.attack(p);
+				}
+			} else {
 				e.attack(p);
+				if(p.isAlive()) {
+					p.attack(e);
+				}
 			}
 		}
 		if(p.isAlive()) {

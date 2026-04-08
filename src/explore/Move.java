@@ -8,8 +8,8 @@ import java.util.Random;
 import java.util.Scanner;
 
 import battle.Battle;
-import character.Enemy;
 import character.Player;
+import character.enemy.EnemyList;
 import equipment.EquipmentList;
 import treasure.EquipmentTreasure;
 import treasure.StatusTreasure;
@@ -22,13 +22,14 @@ public class Move {
 	Battle battle = new Battle();
 	StatusTreasure st = new StatusTreasure();
 	EquipmentTreasure et = new EquipmentTreasure(el);
+	EnemyList elist = new EnemyList();
 	
 	private int mass = 25;
 	
-	Map<String, Runnable> option = new HashMap<>();
+	private Map<String, Runnable> option = new HashMap<>();
 	
-	public Move(Player p, Enemy e) {
-		option.put("BATTLE", () -> battle.battle(p, e));
+	public Move(Player p) {
+		option.put("BATTLE", () -> battle.battle(p, elist.getRandomEnemy()));
 		option.put("TREASURE", () -> 
 			{
 				if(rand.nextBoolean()) {
