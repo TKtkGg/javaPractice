@@ -8,8 +8,9 @@ public abstract class Character {
 	private int atk;
 	private int def;
 	private int spd;
+	private int exp;
 	
-	public Character(String name, int level, int max_hp, int atk, int def, int spd){
+	public Character(String name, int level, int max_hp, int atk, int def, int spd, int exp) {
 		this.level = level;
 		this.name = name;
 		this.max_hp = max_hp;
@@ -17,11 +18,12 @@ public abstract class Character {
 		this.atk = atk;
 		this.def = def;
 		this.spd = spd;
+		this.exp = exp;
 	}
 	
 	public void status() {
 		System.out.println(this.name);
-		System.out.println("Lv : " + this.level);
+		System.out.println("LV : " + this.level);
 		System.out.println("HP : " + this.hp + "/" + this.max_hp);
 		System.out.println("ATK : " + this.atk);
 		System.out.println("DEF : " + this.def);
@@ -56,8 +58,20 @@ public abstract class Character {
 		return this.spd;
 	}
 	
+	public int getExp() {
+		return this.exp;
+	}
+	
 	public void setHp(int hp) {
 		this.hp = hp;
+	}
+	
+	public void setLevel(int level) {
+		this.level = level;
+	}
+	
+	public void setExp(int exp) {
+		this.exp = exp;
 	}
 	
 	public void attack(Character target) {

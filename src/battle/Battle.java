@@ -27,6 +27,7 @@ public class Battle {
 		}
 		if(p.isAlive()) {
 			System.out.println(p.getName() + "の勝利！");
+			p.calcExp(e.getExp());
 			return;
 		} else {
 			System.out.println(e.getName() + "の勝利！");
