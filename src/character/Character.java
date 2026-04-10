@@ -1,6 +1,10 @@
 package character;
 
+import explore.TextEnter;
+
 public abstract class Character {
+	TextEnter text = new TextEnter();
+	
 	private String name;
 	private int level;
 	private int max_hp;
@@ -84,7 +88,7 @@ public abstract class Character {
 			target.setHp(0);
 		}
 		System.out.println("HP : " + target.getHp() + "/" + target.getMaxHp() + "(" + target.getName() + ")");
-		System.out.println();
+		text.textEnter("");
 	}
 	
 	public int calcDamage(Character target) {

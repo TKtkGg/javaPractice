@@ -3,10 +3,11 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import equipment.Equipment;
+import explore.TextEnter;
 
 public class Player extends Character {
 	Scanner sc = new Scanner(System.in);
-	
+	TextEnter text = new TextEnter();
 	private int nextLevelExp = 100;
 	
 	Equipment equipment;
@@ -22,6 +23,7 @@ public class Player extends Character {
 		super.status();
 		System.out.println("EXP : " + this.getExp() + "/" + this.nextLevelExp);
 		System.out.println("装備 : " + this.equipment.getName() + "(ATK:+" + this.equipment.getAtk() + ")");
+		text.textEnter("");
 		this.equip();
 	}
 	
@@ -57,11 +59,13 @@ public class Player extends Character {
 		this.increaseDef(1);
 		System.out.println("SPD : " + this.getSpd() + " -> " + (this.getSpd() + 1));
 		this.increaseSpd(1);
+		text.textEnter("");
 	}
 
 	public void rest() {
 		this.Heal(100);
 		System.out.println("休んで回復した！");
+		text.textEnter("");
 	}
 	
 	public void getEquipment(Equipment e) {

@@ -5,8 +5,10 @@ import java.util.ArrayList;
 import character.Player;
 import equipment.Equipment;
 import equipment.EquipmentList;
+import explore.TextEnter;
 
 public class EquipmentTreasure extends Treasure {
+	TextEnter text = new TextEnter();
 	Equipment equipment;
 	Equipment[] equipmentArray;
 	public EquipmentTreasure(EquipmentList list) {
@@ -24,10 +26,11 @@ public class EquipmentTreasure extends Treasure {
 		
 		System.out.println(this.name + "を見つけた！");
 		System.out.println(eqName + "(ATK:" + eqAtk + ")を手に入れた！");
-		
+		text.textEnter("");
 		ArrayList<Equipment> equipments = player.getOwnEquipment();
 		if(equipments.contains(receiveEquipment)) {
 			System.out.println("すでに持っている装備なので、売っぱらった。");
+			text.textEnter("");
 		} else {
 			player.getEquipment(receiveEquipment);
 			player.equip();

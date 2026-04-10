@@ -1,8 +1,10 @@
 package treasure;
 
 import character.Player;
+import explore.TextEnter;
 
 public class StatusTreasure extends Treasure {
+	TextEnter text = new TextEnter();
 	public StatusTreasure() {
 		super("ステータス宝箱");
 	}
@@ -37,6 +39,8 @@ public class StatusTreasure extends Treasure {
 		
 		System.out.println(this.name + "を見つけた！");
 		System.out.println(p.getName() + "の" + targetName + "が" + content + "上昇した！");
+		text.textEnter("");
+		
 	}
 
 }
