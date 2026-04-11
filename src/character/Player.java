@@ -14,7 +14,7 @@ public class Player extends Character {
 	private ArrayList<Equipment> ownEquipments = new ArrayList<>();
 
 	public Player(String name, int level, int max_hp, int atk, int def, int spd, int exp, Equipment e) {
-		super(name, level, max_hp, atk, def, spd, exp);
+		super(name, level, max_hp, atk, def, spd, exp, 100);
 		this.equipment = e;
 		getEquipment(e);
 	}
@@ -22,6 +22,7 @@ public class Player extends Character {
 	public void status() {
 		super.status();
 		System.out.println("EXP : " + this.getExp() + "/" + this.nextLevelExp);
+		System.out.println("Gold : " + this.getGold());
 		System.out.println("装備 : " + this.equipment.getName() + "(ATK:+" + this.equipment.getAtk() + ")");
 		text.textEnter("");
 		this.equip();
@@ -44,6 +45,11 @@ public class Player extends Character {
 			this.setExp(this.getExp() - this.nextLevelExp);
 			this.nextLevelExp *= 1.2;
 		}
+	}
+	
+	public void calcGold(int gainGold) {
+		System.out.println("Gold : " + this.getGold() + " -> " + (this.getGold() + gainGold));
+		this.setGold(this.getGold() + gainGold);
 	}
 	
 	public void levelUp() {

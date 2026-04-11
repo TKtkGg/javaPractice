@@ -5,10 +5,12 @@ import java.util.Objects;
 public class Equipment {
 	private String name;
 	private int atk;
+	private int price;
 	
-	public Equipment(String name, int atk) {
+	public Equipment(String name, int atk, int price) {
 		this.name = name;
 		this.atk = atk;
+		this.price = price;
 	}
 	
 	public String getName() {
@@ -17,6 +19,10 @@ public class Equipment {
 	
 	public int getAtk() {
 		return this.atk;
+	}
+	
+	public int getPrice() {
+		return this.price;
 	}
 	
 	@Override

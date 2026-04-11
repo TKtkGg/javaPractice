@@ -13,8 +13,9 @@ public abstract class Character {
 	private int def;
 	private int spd;
 	private int exp;
+	private int gold;
 	
-	public Character(String name, int level, int max_hp, int atk, int def, int spd, int exp) {
+	public Character(String name, int level, int max_hp, int atk, int def, int spd, int exp, int gold) {
 		this.level = level;
 		this.name = name;
 		this.max_hp = max_hp;
@@ -23,6 +24,7 @@ public abstract class Character {
 		this.def = def;
 		this.spd = spd;
 		this.exp = exp;
+		this.gold = gold;
 	}
 	
 	public void status() {
@@ -66,6 +68,10 @@ public abstract class Character {
 		return this.exp;
 	}
 	
+	public int getGold() {
+		return this.gold;
+	}
+	
 	public void setHp(int hp) {
 		this.hp = hp;
 	}
@@ -76,6 +82,10 @@ public abstract class Character {
 	
 	public void setExp(int exp) {
 		this.exp = exp;
+	}
+	
+	public void setGold(int gold) {
+		this.gold = gold;
 	}
 	
 	public void attack(Character target) {

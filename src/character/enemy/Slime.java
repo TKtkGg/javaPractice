@@ -4,7 +4,7 @@ import character.Character;
 
 public class Slime extends Enemy{
 	public Slime() {
-		super("スライム", 1, 50, 3, 3, 3, 20);
+		super("スライム", 1, 50, 3, 3, 3, 20, 50);
 	}
 	
 	public void attack(Character target) {

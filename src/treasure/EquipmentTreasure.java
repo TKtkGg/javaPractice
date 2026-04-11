@@ -30,6 +30,7 @@ public class EquipmentTreasure extends Treasure {
 		ArrayList<Equipment> equipments = player.getOwnEquipment();
 		if(equipments.contains(receiveEquipment)) {
 			System.out.println("すでに持っている装備なので、売っぱらった。");
+			player.calcGold(receiveEquipment.getPrice() / 2);
 			text.textEnter("");
 		} else {
 			player.getEquipment(receiveEquipment);
