@@ -2,12 +2,14 @@ package character;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import card.EquipmentMaster;
 import equipment.Equipment;
 import explore.TextEnter;
 
 public class Player extends Character {
 	Scanner sc = new Scanner(System.in);
 	TextEnter text = new TextEnter();
+	EquipmentMaster em = new EquipmentMaster();
 	private int nextLevelExp = 100;
 	
 	Equipment equipment;
@@ -34,7 +36,7 @@ public class Player extends Character {
 	
 	@Override
 	public int getAtk() {
-		return super.getAtk() + this.equipment.getAtk();
+		return super.getAtk() + em.applyEffect(this.equipment.getAtk());
 	}
 	
 	public void calcExp(int gainExp) {

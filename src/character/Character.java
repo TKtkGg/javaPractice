@@ -1,9 +1,11 @@
 package character;
 
+import card.SlimeKiller;
 import explore.TextEnter;
 
 public abstract class Character {
 	TextEnter text = new TextEnter();
+	SlimeKiller sk = new SlimeKiller();
 	
 	private String name;
 	private int level;
@@ -109,6 +111,7 @@ public abstract class Character {
 		if(damage < 0) {
 			damage = 0;
 		}
+		damage = sk.applyEffect(damage, target.getName());
 		return damage;
 	}
 	

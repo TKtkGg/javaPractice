@@ -8,6 +8,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 import battle.Battle;
+import card.CardList;
 import character.Player;
 import character.enemy.EnemyList;
 import equipment.EquipmentList;
@@ -23,6 +24,7 @@ public class Move {
 	StatusTreasure st = new StatusTreasure();
 	EquipmentTreasure et = new EquipmentTreasure(el);
 	EnemyList elist = new EnemyList();
+	CardList cl = new CardList();
 	
 	private int mass = 25;
 	
@@ -39,6 +41,7 @@ public class Move {
 				}
 			});
 		option.put("REST", () -> p.rest());
+		option.put("CARD", () -> cl.showCards());
 	}
 	
 	public void explore(Player p) {
