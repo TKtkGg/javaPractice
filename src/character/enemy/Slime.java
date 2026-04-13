@@ -7,8 +7,8 @@ public class Slime extends Enemy{
 		super("スライム", 1, 50, 3, 3, 3, 20, 50);
 	}
 	
-	public void attack(Character target) {
-		super.attack(target);
+	public void attack(Character target, character.Player p) {
+		super.attack(target, p);
 		
 		//50%で粘液を付与する
 		if(Math.random() < 0.5) {

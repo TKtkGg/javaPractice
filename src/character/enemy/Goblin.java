@@ -7,7 +7,7 @@ public class Goblin extends Enemy {
 		super("ゴブリン", 1, 80, 5, 3, 3, 30, 80);
 	}
 	
-	public void attack(Character target) {
-		super.attack(target);
+	public void attack(Character target, character.Player p) {
+		super.attack(target, p);
 	}
 }

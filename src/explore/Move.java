@@ -41,7 +41,9 @@ public class Move {
 				}
 			});
 		option.put("REST", () -> p.rest());
-		option.put("CARD", () -> cl.showCards());
+		if(cl.getUnHavingCards(p).size() > 0) {
+			option.put("CARD", () -> cl.showCards(p));
+		}
 	}
 	
 	public void explore(Player p) {

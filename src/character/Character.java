@@ -1,11 +1,13 @@
 package character;
 
+import card.GoblinKiller;
 import card.SlimeKiller;
 import explore.TextEnter;
 
 public abstract class Character {
 	TextEnter text = new TextEnter();
 	SlimeKiller sk = new SlimeKiller();
+	GoblinKiller gk = new GoblinKiller();
 	
 	private String name;
 	private int level;
@@ -90,8 +92,8 @@ public abstract class Character {
 		this.gold = gold;
 	}
 	
-	public void attack(Character target) {
-		int damage = this.calcDamage(target);
+	public void attack(Character target, Player p) {
+		int damage = this.calcDamage(target, p);
 		int tagHp = target.getHp();
 		target.setHp(tagHp - damage);
 		System.out.println(this.name + "の攻撃！");
@@ -103,7 +105,7 @@ public abstract class Character {
 		text.textEnter("");
 	}
 	
-	public int calcDamage(Character target) {
+	public int calcDamage(Character target, Player p) {
 		double min = 0.5;
 		double max = 1.0;
 		double randomValue = Math.random() * (max - min) + min;
@@ -111,7 +113,8 @@ public abstract class Character {
 		if(damage < 0) {
 			damage = 0;
 		}
-		damage = sk.applyEffect(damage, target.getName());
+		damage = sk.applyEffect(damage, target.getName(), p);
+		damage = gk.applyEffect(damage, target.getName(), p);
 		return damage;
 	}
 	

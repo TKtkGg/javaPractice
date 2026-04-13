@@ -1,6 +1,8 @@
 package character;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Scanner;
+import java.util.Set;
 
 import card.EquipmentMaster;
 import equipment.Equipment;
@@ -14,6 +16,7 @@ public class Player extends Character {
 	
 	Equipment equipment;
 	private ArrayList<Equipment> ownEquipments = new ArrayList<>();
+	private Set<String> ownedCards = new HashSet<>();
 
 	public Player(String name, int level, int max_hp, int atk, int def, int spd, int exp, Equipment e) {
 		super(name, level, max_hp, atk, def, spd, exp, 100);
@@ -31,12 +34,12 @@ public class Player extends Character {
 	}
 	
 	public void attack(Character target) {
-		super.attack(target);
+		super.attack(target, this);
 	}
 	
 	@Override
 	public int getAtk() {
-		return super.getAtk() + em.applyEffect(this.equipment.getAtk());
+		return super.getAtk() + em.applyEffect(this.equipment.getAtk(), this);
 	}
 	
 	public void calcExp(int gainExp) {
@@ -100,5 +103,13 @@ public class Player extends Character {
 		} else {
 			return;
 		}
+	}
+	
+	public void obtainCard(String cardName) {
+	    ownedCards.add(cardName);
+	}
+	 
+	public boolean hasCard(String cardName) {
+	    return ownedCards.contains(cardName);
 	}
 }

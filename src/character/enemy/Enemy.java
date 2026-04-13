@@ -1,6 +1,7 @@
 package character.enemy;
 
 import character.Character;
+import character.Player;
 
 public class Enemy extends Character {
 	public Enemy(String name, int level, int max_hp, int atk, int def, int spd, int exp, int gold) {
@@ -12,8 +13,8 @@ public class Enemy extends Character {
 		System.out.println("EXP : " + this.getExp());
 	}
 	
-	public void attack(Character target) {
-		super.attack(target);
+	public void attack(Character target, Player p) {
+		super.attack(target, p);
 	}
 	
 	public void respawn() {

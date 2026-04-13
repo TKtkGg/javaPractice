@@ -1,14 +1,17 @@
 package card;
 
+import character.Player;
+
 public class SlimeKiller extends Card {
 	public SlimeKiller() {
 		super("スライムキラー", "スライムに対して与えるダメージが1.5倍になる");
 	}
 	
-	public int applyEffect(int damage, String enemy) {
-		if(!getIsGot()) {
+	public int applyEffect(int damage, String enemy, Player p) {
+		if(!p.hasCard(this.getName())) {
 			return damage;
 		}
+		System.out.println("スライムキラーの効果が発動！");
 		if(enemy.contains("スライム")) {
 			return (int) (damage * 1.5);
 		}

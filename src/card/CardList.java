@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
 
+import character.Player;
 import explore.TextEnter;
 
 public class CardList {
@@ -16,25 +17,41 @@ public class CardList {
 		this.cards = new ArrayList<>();
 		this.cards.add(new EquipmentMaster());
 		this.cards.add(new SlimeKiller());
+		this.cards.add(new GoblinKiller());
+		this.cards.add(new Lucky());
 	}
 	
-	public Object useCardList() {
-		return cards.clone();
+	public ArrayList<Card> useCardList() {
+		return cards;
 	}
 	
-	public void showCards() {
-		Collections.shuffle(cards);
+	public ArrayList<Card> getUnHavingCards(Player p) {
+		ArrayList<Card> unHavingCards = new ArrayList<>();
+		for(Card c : cards) {
+			if(!p.hasCard(c.getName())) {
+				unHavingCards.add(c);
+			}
+		}
+		System.out.println("持っていないカードの数 : " + unHavingCards.size());
+		return unHavingCards;
+	}
+	
+	public void showCards(Player p) {
+		ArrayList<Card> chooseCards = new ArrayList<>();
+		chooseCards.addAll(getUnHavingCards(p));
+		
+		Collections.shuffle(chooseCards);
 		System.out.println("カードを選べ");
-		for(int i = 0; i < cards.size(); i++) {
-			System.out.println((i + 1) + " : " + cards.get(i).getName());
-			System.out.println("    " + cards.get(i).getText());
+		for(int i = 0; i < chooseCards.size(); i++) {
+			System.out.println((i + 1) + " : " + chooseCards.get(i).getName());
+			System.out.println("    " + chooseCards.get(i).getText());
 			if(i == 2) {
 				break;
 			}
 		}
 		int choiceNum = sc.nextInt() - 1;
-		cards.get(choiceNum).isChosen();
-		System.out.println(cards.get(choiceNum).getName() + "を手に入れた！");
+		p.obtainCard(chooseCards.get(choiceNum).getName());
+		System.out.println(chooseCards.get(choiceNum).getName() + "を手に入れた！");
 		text.textEnter("");
 	}
 }

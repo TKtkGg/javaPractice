@@ -18,10 +18,10 @@ public class Battle {
 			if(p.getSpd() >= e.getSpd()) {
 				p.attack(e);
 				if(e.isAlive()) {
-					e.attack(p);
+					e.attack(p, p);
 				}
 			} else {
-				e.attack(p);
+				e.attack(p, p);
 				if(p.isAlive()) {
 					p.attack(e);
 				}
