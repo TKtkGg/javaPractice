@@ -11,7 +11,6 @@ public class Lucky extends Card {
 		if(!p.hasCard(this.getName())) {
 			return status;
 		}
-		System.out.println("ラッキーの効果が発動！");
 		return status * 2;
 	}
 }

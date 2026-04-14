@@ -14,7 +14,7 @@ public class Enemy extends Character {
 	}
 	
 	public void attack(Character target, Player p) {
-		super.attack(target, p);
+		super.attack(target);
 	}
 	
 	public void respawn() {

@@ -41,13 +41,15 @@ public class Move {
 				}
 			});
 		option.put("REST", () -> p.rest());
-		if(cl.getUnHavingCards(p).size() > 0) {
-			option.put("CARD", () -> cl.showCards(p));
-		}
+		option.put("CARD", () -> cl.showCards(p));
 	}
 	
 	public void explore(Player p) {
 		while(mass > 0) {
+			if (cl.getUnHavingCards(p).isEmpty()) {
+		        option.remove("CARD");
+		    }
+			
 			List<String> optionName = new ArrayList<>();
 			for (String key : option.keySet()) {
 				optionName.add(key);

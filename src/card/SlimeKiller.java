@@ -11,7 +11,6 @@ public class SlimeKiller extends Card {
 		if(!p.hasCard(this.getName())) {
 			return damage;
 		}
-		System.out.println("スライムキラーの効果が発動！");
 		if(enemy.contains("スライム")) {
 			return (int) (damage * 1.5);
 		}

@@ -11,7 +11,6 @@ public class GoblinKiller extends Card {
 		if(!p.hasCard(this.getName())) {
 			return damage;
 		}
-		System.out.println("ゴブリンキラーの効果が発動！");
 		if(enemy.contains("ゴブリン")) {
 			return (int) (damage * 1.5);
 		}

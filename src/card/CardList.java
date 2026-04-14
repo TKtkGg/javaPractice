@@ -32,7 +32,6 @@ public class CardList {
 				unHavingCards.add(c);
 			}
 		}
-		System.out.println("持っていないカードの数 : " + unHavingCards.size());
 		return unHavingCards;
 	}
 	

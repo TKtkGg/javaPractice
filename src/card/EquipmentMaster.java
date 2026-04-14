@@ -11,7 +11,6 @@ public class EquipmentMaster extends Card {
 		if(!p.hasCard(this.getName())) {
 			return atk;
 		}
-		System.out.println("装備マスターの効果が発動！");
 		return (int) (atk * 1.5);
 	}
 }

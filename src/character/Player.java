@@ -34,12 +34,20 @@ public class Player extends Character {
 	}
 	
 	public void attack(Character target) {
-		super.attack(target, this);
+		super.attack(target);
 	}
 	
 	@Override
 	public int getAtk() {
 		return super.getAtk() + em.applyEffect(this.equipment.getAtk(), this);
+	}
+	
+	@Override
+	public int calcDamage(Character target) {
+		int damage = super.calcDamage(target);
+		damage = sk.applyEffect(damage, target.getName(), this);
+		damage = gk.applyEffect(damage, target.getName(), this);
+		return damage;
 	}
 	
 	public void calcExp(int gainExp) {
