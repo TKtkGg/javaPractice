@@ -27,7 +27,7 @@ public class CardList {
 	
 	public ArrayList<Card> getUnHavingCards(Player p) {
 		ArrayList<Card> unHavingCards = new ArrayList<>();
-		for(Card c : cards) {
+		for(Card c : this.cards) {
 			if(!p.hasCard(c.getName())) {
 				unHavingCards.add(c);
 			}

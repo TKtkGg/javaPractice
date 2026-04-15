@@ -33,7 +33,7 @@ public class EquipmentTreasure extends Treasure {
 			player.calcGold(receiveEquipment.getPrice() / 2);
 			text.textEnter("");
 		} else {
-			player.getEquipment(receiveEquipment);
+			player.gotEquipment(receiveEquipment);
 			player.equip();
 		}
 		return;

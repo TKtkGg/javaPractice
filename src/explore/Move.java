@@ -12,6 +12,7 @@ import card.CardList;
 import character.Player;
 import character.enemy.EnemyList;
 import equipment.EquipmentList;
+import shop.Shop;
 import treasure.EquipmentTreasure;
 import treasure.StatusTreasure;
 
@@ -26,11 +27,13 @@ public class Move {
 	EnemyList elist = new EnemyList();
 	CardList cl = new CardList();
 	
+	
 	private int mass = 25;
 	
 	private Map<String, Runnable> option = new HashMap<>();
 	
 	public Move(Player p) {
+		Shop shop = new Shop(p, el, cl);
 		option.put("BATTLE", () -> battle.battle(p, elist.getRandomEnemy()));
 		option.put("TREASURE", () -> 
 			{
@@ -42,6 +45,7 @@ public class Move {
 			});
 		option.put("REST", () -> p.rest());
 		option.put("CARD", () -> cl.showCards(p));
+		option.put("SHOP", () -> shop.enter());
 	}
 	
 	public void explore(Player p) {

@@ -21,7 +21,7 @@ public class Player extends Character {
 	public Player(String name, int level, int max_hp, int atk, int def, int spd, int exp, Equipment e) {
 		super(name, level, max_hp, atk, def, spd, exp, 100);
 		this.equipment = e;
-		getEquipment(e);
+		gotEquipment(e);
 	}
 	
 	public void status() {
@@ -87,7 +87,7 @@ public class Player extends Character {
 		text.textEnter("");
 	}
 	
-	public void getEquipment(Equipment e) {
+	public void gotEquipment(Equipment e) {
 		this.ownEquipments.add(e);
 	}
 	
@@ -114,10 +114,14 @@ public class Player extends Character {
 	}
 	
 	public void obtainCard(String cardName) {
-	    ownedCards.add(cardName);
+	    this.ownedCards.add(cardName);
 	}
 	 
 	public boolean hasCard(String cardName) {
-	    return ownedCards.contains(cardName);
+	    return this.ownedCards.contains(cardName);
+	}
+	
+	public Set<String> getOwnedCards() {
+	    return this.ownedCards;
 	}
 }
