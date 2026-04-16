@@ -12,4 +12,13 @@ public class EquipmentList {
 	public Equipment[] useEquipmentList() {
 		return equipments.clone();
 	}
+	
+	public Equipment getEquipmentByName(String name) {
+		for (Equipment equipment : equipments) {
+			if (equipment.getName().equals(name)) {
+				return equipment;
+			}
+		}
+		return null;
+	}
 }
