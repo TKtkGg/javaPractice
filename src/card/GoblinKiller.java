@@ -4,7 +4,7 @@ import character.Player;
 
 public class GoblinKiller extends Card {
 	public GoblinKiller() {
-		super("ゴブリンキラー", "ゴブリンに対して与えるダメージが1.5倍になる");
+		super("ゴブリンキラー", "ゴブリンに対して与えるダメージが1.5倍になる", 300);
 	}
 	
 	public int applyEffect(int damage, String enemy, Player p) {

@@ -1,6 +1,7 @@
 package shop;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -24,6 +25,7 @@ public class Shop {
 	private Equipment[] shopEquipments;
 	
 	public Map<String, String> getItems(Player player, EquipmentList el, CardList cl) {
+		items.clear();
 		this.ownedCards = player.getOwnedCards();
 		this.ownEquipments = player.getOwnEquipment();
 		this.shopEquipments = el.useEquipmentList();
@@ -44,20 +46,41 @@ public class Shop {
 	
 	public void enter(Player player, EquipmentList el, CardList cl) {
 		this.items = getItems(player, el, cl);
-		System.out.println("ショップに入りました。");
-		System.out.println("何を得る？");
+		
+		ArrayList<Integer> itemNumber = new ArrayList<>();
 		for(int i = 0; i < items.size(); i++) {
-			System.out.println(i+1 + ":" + items.keySet().toArray()[i] + " (" + items.get(items.keySet().toArray()[i]) + ")");
+			itemNumber.add(i);
 		}
-		int choiceNum = sc.nextInt() - 1;
-		String chosenItem = (String) items.keySet().toArray()[choiceNum];
-		String itemType = items.get(chosenItem);
-		if(itemType.equals("CARD")) {
-			player.obtainCard(chosenItem);
-		} else if(itemType.equals("EQUIPMENT")) {
-			player.gotEquipment(el.getEquipmentByName(chosenItem));
+		Collections.shuffle(itemNumber);
+
+		System.out.println("ショップに入りました。");
+		while(items.size() > 0) {
+			System.out.println("何を得る？");
+			for(int i = 0; i < items.size(); i++) {
+				System.out.println(i+1 + ":" + items.keySet().toArray()[itemNumber.get(i)] + " (" + items.get(items.keySet().toArray()[itemNumber.get(i)]) + ")");
+			}
+			System.out.println("0:ショップを出る");
+			
+			int choiceNum = sc.nextInt() - 1;
+			if(choiceNum == -1) {
+				System.out.println("ショップを出ました。");
+				System.out.println();
+				break;
+			}
+			
+			String chosenItem = (String) items.keySet().toArray()[choiceNum];
+			
+			String itemType = items.get(chosenItem);
+			
+			if(itemType.equals("CARD")) {
+				player.obtainCard(chosenItem);
+			} else if(itemType.equals("EQUIPMENT")) {
+				player.gotEquipment(el.getEquipmentByName(chosenItem));
+			}
+			
+			System.out.println(chosenItem + "を手に入れた！");
+			System.out.println();
 		}
-		System.out.println(chosenItem + "を手に入れた！");
-		System.out.println();
+		
 	}
 }

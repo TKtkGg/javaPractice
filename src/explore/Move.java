@@ -20,10 +20,8 @@ public class Move {
 	Scanner sc = new Scanner(System.in);
 	Random rand = new Random();
 	
-	EquipmentList el = new EquipmentList();
 	Battle battle = new Battle();
 	StatusTreasure st = new StatusTreasure();
-	EquipmentTreasure et = new EquipmentTreasure(el);
 	EnemyList elist = new EnemyList();
 	CardList cl = new CardList();
 	Shop shop = new Shop();
@@ -33,7 +31,7 @@ public class Move {
 	
 	private Map<String, Runnable> option = new HashMap<>();
 	
-	public Move(Player p) {
+	public Move(Player p, EquipmentList el, EquipmentTreasure et) {
 		option.put("BATTLE", () -> battle.battle(p, elist.getRandomEnemy()));
 		option.put("TREASURE", () -> 
 			{
