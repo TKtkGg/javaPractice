@@ -25,6 +25,15 @@ public class CardList {
 		return cards;
 	}
 	
+	public Card getCardByName(String name) {
+		for(Card c : this.cards) {
+			if(c.getName().equals(name)) {
+				return c;
+			}
+		}
+		return null;
+	}
+	
 	public ArrayList<Card> getUnHavingCards(Player p) {
 		ArrayList<Card> unHavingCards = new ArrayList<>();
 		for(Card c : this.cards) {

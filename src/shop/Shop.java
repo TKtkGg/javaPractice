@@ -52,12 +52,22 @@ public class Shop {
 			itemNumber.add(i);
 		}
 		Collections.shuffle(itemNumber);
+		
+		String[] itemNames = items.keySet().toArray(new String[0]);
+		String[] itemTypes = items.values().toArray(new String[0]);
 
 		System.out.println("ショップに入りました。");
 		while(items.size() > 0) {
 			System.out.println("何を得る？");
 			for(int i = 0; i < items.size(); i++) {
-				System.out.println(i+1 + ":" + items.keySet().toArray()[itemNumber.get(i)] + " (" + items.get(items.keySet().toArray()[itemNumber.get(i)]) + ")");
+				int price = 0;
+				if(itemTypes[i].equals("CARD")) {
+					price = cl.getCardByName(itemNames[i]).getPrice();
+				} else if(itemTypes[i].equals("EQUIPMENT")) {
+					price = el.getEquipmentByName(itemNames[i]).getPrice();
+				}
+				
+				System.out.println(i+1 + ":" + itemNames[i] + " (" + price +  "G)" + " (" + itemTypes[i] + ")");
 			}
 			System.out.println("0:ショップを出る");
 			
@@ -68,13 +78,27 @@ public class Shop {
 				break;
 			}
 			
-			String chosenItem = (String) items.keySet().toArray()[choiceNum];
+			String chosenItem = itemNames[choiceNum];
 			
 			String itemType = items.get(chosenItem);
 			
 			if(itemType.equals("CARD")) {
+				int price = cl.getCardByName(chosenItem).getPrice();
+				if(player.getGold() < price) {
+					System.out.println("金がねぇぞ！");
+					System.out.println();
+					continue;
+				}
+				player.setGold(player.getGold() - price);
 				player.obtainCard(chosenItem);
 			} else if(itemType.equals("EQUIPMENT")) {
+				int price = el.getEquipmentByName(chosenItem).getPrice();
+				if(player.getGold() < price) {
+					System.out.println("金がねぇぞ！");
+					System.out.println();
+					continue;
+				}
+				player.setGold(player.getGold() - price);
 				player.gotEquipment(el.getEquipmentByName(chosenItem));
 			}
 			
